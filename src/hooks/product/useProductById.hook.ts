@@ -9,6 +9,7 @@ export const useProductById = (id: number) => {
   const { data, error, isLoading } = useQuery({
     queryKey: ["product", id],
     queryFn: () => getProduct(id),
+    enabled: !isNaN(id),
     initialData: () => {
       const products = client.getQueryData<ProductDto[]>(["products"])
       return products?.find((p) => p.id === id)
