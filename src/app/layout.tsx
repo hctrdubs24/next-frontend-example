@@ -1,8 +1,9 @@
 import { cn } from "@/lib/utils"
 import { Geist, JetBrains_Mono } from "next/font/google"
 import { ReactNode } from "react"
-import { Providers } from "./components/providers"
+import { Providers } from "@/shared/providers/providers"
 import "./globals.css"
+import { Toaster } from "@/components/ui/sonner"
 
 const fontSans = Geist({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -29,6 +30,7 @@ export default function RootLayout({
     >
       <body>
         <Providers>{children}</Providers>
+        <Toaster />
       </body>
     </html>
   )
